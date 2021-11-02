@@ -13,9 +13,11 @@ public class Test1 {
     }
 
 
-    public  void write(String s){
+    public  void write(String s)throws Exception{
         driver.get(c);
         driver.findElement(xpath).sendKeys(s, Keys.ENTER);
+        Thread.sleep(2000);
+        driver.close();
     }
 
 }
