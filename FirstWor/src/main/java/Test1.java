@@ -1,6 +1,7 @@
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -21,12 +22,15 @@ public class Test1 {
         driver.get(c);
         driver.findElement(xpath).sendKeys(s, Keys.ENTER);
         Thread.sleep(2000);
-        WebDriverWait webDriverWait=new WebDriverWait(driver, Duration.ofSeconds(10));
-        webDriverWait.until(ExpectedConditions.elementToBeClickable(By.xpath("//title")));
 
-        driver.close();
 
     }
+    public void read(){
+        WebDriverWait webDriverWait=new WebDriverWait(driver, Duration.ofSeconds(10));
+        webDriverWait.until(ExpectedConditions.elementToBeClickable(By.xpath("//a//h3")));
+
+    }
+
 
 
 }
