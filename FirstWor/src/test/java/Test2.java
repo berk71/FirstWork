@@ -23,6 +23,7 @@ String s="https://www.google.com/";
     public void after(){
         test1.read(driver);
         System.out.println("after tets");
+        driver.quit();
     }
     @Test
     public void setTest1(){

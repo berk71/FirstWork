@@ -18,7 +18,7 @@ public class Test1 {
     public void read(WebDriver driver){
         WebElement element=new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.elementToBeClickable(By.xpath("//a//h3")));
         System.out.println(element.getText());
-        driver.quit();
+
     }
 
 
