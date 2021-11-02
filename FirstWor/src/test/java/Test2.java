@@ -13,6 +13,7 @@ public class Test2  {
          test1=new Test1(new ChromeDriver(),"https://www.google.com/");
          try {
              test1.write("java");
+
     }catch (Exception e){
              e.printStackTrace();
          }
