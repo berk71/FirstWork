@@ -27,18 +27,10 @@ public class Amazon {
 List<WebElement> name=driver.findElements(By.xpath("//span[@class=\"a-size-medium a-color-base a-text-normal\"]"));
 List<WebElement> author=driver.findElements(By.xpath("//div[@class=\"a-row\"]//a[@class=\"a-size-base a-color-base a-link-normal s-underline-text s-underline-link-text\"]"));
 List<WebElement> price=driver.findElements(By.xpath("//span[@class=\"a-price-whole\"]"));
-
-for (WebElement r:name){
-    System.out.println("name"+r.getText());
+if(author.isEmpty()){
+    author=driver.findElements(By.xpath("//a[@class=\"a-size-base a-link-normal\"]"));
 }
-for (WebElement c:author){
-    System.out.println(c.getText());
-}
-        for (WebElement p:price){
-            System.out.println(p.getText());
-        }
-
-for(int i=0;i<name.size();i++){
+for(int i=0;i<author.size();i++){
     Book b=new Book();
 
     b.setBookname(name.get(i).getText());
