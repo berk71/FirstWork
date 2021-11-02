@@ -8,17 +8,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 
 public class Test1 {
-
-    protected String c;
     private By xpath=By.xpath("//input[@name=\"q\"]");
-
-    public Test1( String c) {
-        this.c = c;
-    }
-
-
     public  void write(WebDriver driver,String s)throws Exception{
-        driver.get(c);
         driver.findElement(xpath).sendKeys(s, Keys.ENTER);
         Thread.sleep(2000);
 

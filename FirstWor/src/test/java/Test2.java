@@ -14,8 +14,9 @@ String s="https://www.google.com/";
     @BeforeSuite
     public void beforetest(){
         System.setProperty("webdriver.chrome.driver","src\\chromedriver.exe");
-        test1=new Test1(s);
+        test1=new Test1();
         driver=new ChromeDriver();
+        driver.get(s);
         System.out.println("Before");
     }
     @AfterTest
