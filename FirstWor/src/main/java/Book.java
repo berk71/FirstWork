@@ -12,6 +12,18 @@ public class Book {
         this.price = price;
     }
 
+    public String getBookname() {
+        return bookname;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public String getPrice() {
+        return price;
+    }
+
     public void setBookname(String bookname) {
         this.bookname = bookname;
     }
