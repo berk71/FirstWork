@@ -12,11 +12,6 @@ public class Amazon {
     public void select(WebDriver driver){
        searchPage=new SearchPage(driver);
        searchPage.search();
-        try {
-            Thread.sleep(2000);
-        }catch (Exception e){
-            e.printStackTrace();
-        }
     }
     public  void save(WebDriver driver){
         bookSearchPage=new BookSearchPage(driver);

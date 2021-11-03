@@ -41,13 +41,14 @@ public class ExpectedPage {
         book= new Book(name.getText(),author.getText(),price.getText());
     }
     public boolean expected(List<Book> list){
+        boolean m=false;
         for(Book b:list){
             if(b.getBookname().equals(book.getBookname())&&b.getAuthor().equals(book.getAuthor())&&b.getPrice().equals(book.getPrice())){
-                return true;
+                m=true;
+                break;
             }
         }
-
-        return false;
+        return m;
     }
 
 }
