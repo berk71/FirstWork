@@ -34,7 +34,7 @@ public class ExpectedPage {
     public void init(){
         name=driver.findElement(By.xpath("//span[@id=\"productTitle\"]"));
         author= driver.findElement(By.xpath("//span[@class=\"author notFaded\"]//a[@class=\"a-link-normal contributorNameID\"]"));
-        price= driver.findElement(By.xpath("//a[@class=\"a-link-normal contributorNameID\"]"));
+        price= driver.findElement(By.xpath("//span[@id=\"newBuyBoxPrice\" or @class=\"a-color-price\"]"));
         Book();
     }
     public void Book(){
@@ -42,8 +42,15 @@ public class ExpectedPage {
     }
     public boolean expected(List<Book> list){
         for(Book b:list){
-            if(b.equals(getBook()))return true;
+            System.out.println(book+" "+"then:" +" "+ b);
+            boolean m=b.equals(book);
+            System.out.println(m);
+            if(b.equals(book)){
+                System.out.println(book+":yyyyes");
+                return true;
+            }
         }
+
         return false;
     }
 
