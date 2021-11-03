@@ -7,15 +7,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Amazon {
-    private List<Book> list=new ArrayList<>();
+    private SearchPage searchPage;
+    private BookSearchPage bookSearchPage;
+    private List<Book> list;
 
     public List<Book> getList() {
         return list;
     }
     public void select(WebDriver driver){
-        driver.findElement(By.xpath("//select[@aria-describedby=\"searchDropdownDescription\"]")).click();
-        driver.findElement(By.xpath("//select//option[@value=\"search-alias=stripbooks-intl-ship\"]")).click();
-        driver.findElement(By.xpath("//input[@id=\"twotabsearchtextbox\"]")).sendKeys("Java", Keys.ENTER);
+       searchPage=new SearchPage(driver);
+       searchPage.search();
         try {
             Thread.sleep(2000);
         }catch (Exception e){
@@ -23,28 +24,8 @@ public class Amazon {
         }
     }
     public  void save(WebDriver driver){
-
-List<WebElement> name=driver.findElements(By.xpath("//span[@class=\"a-size-medium a-color-base a-text-normal\"]"));
-List<WebElement> author=driver.findElements(By.xpath("//div[@class=\"a-row\"]//a[@class=\"a-size-base a-color-base a-link-normal s-underline-text s-underline-link-text\"]"));
-List<WebElement> price=driver.findElements(By.xpath("//span[@class=\"a-price-whole\"]"));
-List<WebElement>price2=driver.findElements(By.xpath("//span[@class=\"a-price-fraction\"]"));
-if(author.isEmpty()){
-    author=driver.findElements(By.xpath("//a[@class=\"a-size-base a-link-normal\"]"));
-}
-for(int i=0;i<author.size();i++){
-    Book b=new Book();
-  String y="$"+price.get(i).getText()+"."+price2.get(i).getText();
-    b.setBookname(name.get(i).getText());
-    b.setPrice(y);
-    b.setAuthor(author.get(i).getText());
-    list.add(b);
-
-}
-        try {
-            Thread.sleep(2000);
-        }catch (Exception e){
-        e.printStackTrace();
-        }
+        bookSearchPage=new BookSearchPage(driver);
+        list=bookSearchPage.getBook();
 
     }
     public boolean equals(WebDriver driver){
@@ -57,4 +38,5 @@ for(int i=0;i<author.size();i++){
         }
 return m;
     }
+
 }
