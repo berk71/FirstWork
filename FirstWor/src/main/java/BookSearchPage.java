@@ -37,8 +37,6 @@ public class BookSearchPage {
             b.setPrice(y);
             b.setAuthor(author.get(i).getText());
             book.add(b);
-            System.out.println(b);
-
         }
     }
 }
