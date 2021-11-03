@@ -42,7 +42,7 @@ public class ExpectedPage {
     }
     public boolean expected(List<Book> list){
         for(Book b:list){
-            if(b.equals(book)){
+            if(b.getBookname().equals(book.getBookname())&&b.getAuthor().equals(book.getAuthor())&&b.getPrice().equals(book.getPrice())){
                 return true;
             }
         }
