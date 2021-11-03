@@ -42,11 +42,7 @@ public class ExpectedPage {
     }
     public boolean expected(List<Book> list){
         for(Book b:list){
-            System.out.println(book+" "+"then:" +" "+ b);
-            boolean m=b.equals(book);
-            System.out.println(m);
             if(b.equals(book)){
-                System.out.println(book+":yyyyes");
                 return true;
             }
         }
