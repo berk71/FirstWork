@@ -21,9 +21,6 @@ public class AmazonTest {
     }
     @AfterSuite
     public void after(){
-        for(Book c:amazon.getList()){
-            System.out.println(c);
-        }
         driver.quit();
     }
     //в цьому тесті змінюються налаштування фільтру та проводится пошук
