@@ -34,7 +34,7 @@ public class AmazonTest {
          amazon.save(driver);
          driver.get(u);
          SoftAssert softAssert=new SoftAssert();
-        softAssert.assertEquals(amazon.equals(driver),true,"First book does not exit");
+        softAssert.assertEquals(amazon.equals(driver),false,"First book does not exit");
         driver.get(p);
         softAssert.assertEquals(amazon.equals(driver),true,"Second book does not exit");
         softAssert.assertAll();
